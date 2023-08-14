@@ -1,2 +1,9 @@
 Flask==2.3.2
 Pillow==10.0.0
+isort
+ruff
+black
+flake8
+pytest
+pytest-cov
+coverage
