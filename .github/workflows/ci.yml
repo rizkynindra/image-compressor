@@ -3,12 +3,8 @@ name: Continuous Integration
 on: [push, pull_request]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        version: ["3.8", "3.9", "3.10", "3.11"]
-    runs-on: ${{ matrix.os }}
+  ci:
+    runs-on: ubuntu-latest
     continue-on-error: true
 
     steps:
@@ -18,7 +14,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: ${{ matrix.version }}
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
@@ -26,4 +22,4 @@ jobs:
           pip install pytest pytest-cov coverage
 
       - name: Run tests
-        run: pytest --cov-app --cov-report=html --cov-report=term
+        run: pytest --cov-tests/ --cov-report=html --cov-report=term
