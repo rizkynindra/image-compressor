@@ -5,7 +5,8 @@ on: [push, pull_request]
 jobs:
   format-lint:
     runs-on: ubuntu-latest
-
+    outputs:
+      check_changes: ${{ steps.check_changes.outputs.check_changes }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,14 +24,14 @@ jobs:
       - name: Run Ruff
         run: ruff . --fix
 
+      - name: Check for changes
+        id: check_changes
+        run: echo check_changes=$(git status --porcelain) >> $GITHUB_OUTPUT
+
       - name: Commit formatting fixes
+        if: steps.check_changes.outputs.check_changes == 'M'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -a -m "Auto-formatting and linting fixes [skip ci]"
-
-      - name: Push changes
-        if: github.event_name == 'push'
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          git push origin master
