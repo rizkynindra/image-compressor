@@ -22,4 +22,4 @@ jobs:
           pip install pytest pytest-cov coverage
 
       - name: Run tests
-        run: pytest --cov-tests/ --cov-report=html --cov-report=term
+        run: pytest --cov=tests/ --cov-report=html --cov-report=term
