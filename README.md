@@ -35,8 +35,8 @@ The Image Compression Web Application is a simple Flask-based web application th
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/photo-compression-app.git
-cd photo-compression-app
+git clone https://github.com/k1lgor/image-compressor.git
+cd image-compressor
 ```
 
 2. Install the required dependencies:
@@ -87,7 +87,7 @@ docker build -t image-compressor .
 docker-compose up -d
 ```
 
-4. Open your web browser and go to `http://localhost:5000` to access the application.
+4. Open your web browser and go to http://localhost:5000 to access the application.
 
 ## Contributing
 
