@@ -1,6 +1,12 @@
 name: Code Formatting and Linting
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - "!**/*.py"
+  pull_request:
+    paths:
+      - "!**/*.py"
 
 jobs:
   format-lint:
