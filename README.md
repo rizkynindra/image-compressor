@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/k1lgor/image-compressor/branch/master/graph/badge.svg?token=OWVSAGHDPL)](https://codecov.io/gh/k1lgor/image-compressor)
+
 # Image Compression Web Application
 
 The Image Compression Web Application is a simple Flask-based web application that allows users to upload images for compression while maintaining image quality. The application utilizes the popular Python Imaging Library (PIL) to perform image compression.
