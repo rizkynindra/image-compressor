@@ -18,7 +18,7 @@ def is_valid_image(file):
     return file and allowed_file(file.filename)
 
 
-def compress_image(input_path, output_path, quality=85):
+def compress_image(input_path, output_path, quality=50):
     try:
         img = Image.open(input_path)
         img.save(output_path, optimize=True, quality=quality)
